@@ -1,0 +1,29 @@
+<span  class="supplychain-cards">
+ <div class="col-md-3 col-sm-6 padding-0 card">
+<h3 class="title">[title_field_et]</h3>
+<p>[field_caption_et]</p>
+
+<p class="supply-chain-readmore-p">[field_document] <img class="arrow" src="sites/default/files/white-arrow.png"></p>
+</div>
+</span>
+
+
+<span class="supplychain-cards">
+ <div class="col-md-3 col-sm-6 padding-0 card">
+     <h3 class="title"><?php print $row->field_title_field_et[0]['rendered']['#markup']; ?></h3>
+
+     <p><?php print $row->field_field_caption_et[0]['rendered']['#markup']; ?></p>
+     <?php if ($row->nid == '684') {
+         $pdf1 = file_create_url($row->field_field_document[0]['raw']['uri']);
+         $pdf2 = file_create_url($row->field_field_document_2[0]['raw']['uri']);
+
+         echo '<p class="supply-chain-readmore-p"><a href="' . $pdf1 . '" target="_blank">Direct Terms and Conditions</a> <img class="arrow" src="sites/default/files/white-arrow.png"></p>';
+         echo '<p class="supply-chain-readmore-p"><a href="' . $pdf2 . '" target="_blank">Indirect Terms and Conditions</a> <img class="arrow" src="sites/default/files/white-arrow.png"></p>';
+     } else {
+         $pdf1 = file_create_url($row->field_field_document[0]['raw']['uri']);
+         echo '<p class="supply-chain-readmore-p"><a href="' . $pdf1 . '" target="_blank">Read more</a> <img class="arrow" src="sites/default/files/white-arrow.png"></p>';
+     }
+     ?>
+
+ </div>
+</span>
